@@ -2,9 +2,9 @@
 
 namespace Enrisezwolle\FilamentCms;
 
+use Enrisezwolle\FilamentCms\Commands\FilamentCmsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Enrisezwolle\FilamentCms\Commands\FilamentCmsCommand;
 
 class FilamentCmsServiceProvider extends PackageServiceProvider
 {
