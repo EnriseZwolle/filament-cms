@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Enrisezwolle\FilamentCms\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentCmsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-cms';
 
     public $description = 'My command';
 
