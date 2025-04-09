@@ -32,5 +32,5 @@ return [
             Blocks\ImageBlock::class,
             Blocks\QuoteBlock::class,
         ],
-    ]
+    ],
 ];

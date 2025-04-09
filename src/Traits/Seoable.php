@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-
 namespace Enrisezwolle\FilamentCms\Traits;
 
 use Enrisezwolle\FilamentCms\Models\Seo;
+use Filament\Forms;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Group;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Forms;
 
 trait Seoable
 {

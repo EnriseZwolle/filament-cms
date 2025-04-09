@@ -58,7 +58,7 @@ trait Sluggable
 
         // Contains prefix, simply suffix own slug
         if (! is_null($prefix)) {
-            return $prefix . '/' . $slug;
+            return $prefix.'/'.$slug;
         }
 
         $path = implode('/', array_filter([$slug, $suffix]));

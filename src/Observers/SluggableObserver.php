@@ -21,7 +21,8 @@ class SluggableObserver
         }
     }
 
-    public function deleted(Model|IsSluggable $model) {
+    public function deleted(Model|IsSluggable $model)
+    {
         $model->resourceLookup()->delete();
     }
 }

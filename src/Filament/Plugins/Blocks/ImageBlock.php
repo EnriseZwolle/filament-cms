@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Enrisezwolle\FilamentCms\Filament\Plugins\Blocks;
 
-use Filament\Forms;
 use Enrisezwolle\FilamentCms\Filament\Plugins\BaseBlock;
+use Filament\Forms;
 
 class ImageBlock extends BaseBlock
 {

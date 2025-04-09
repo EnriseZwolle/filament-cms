@@ -4,9 +4,9 @@ namespace Enrisezwolle\FilamentCms\Filament\Actions\Tables;
 
 use Enrisezwolle\FilamentCms\Contracts\IsSluggable;
 use Enrisezwolle\FilamentCms\Exceptions\SluggableInterfaceNotImplemented;
+use Filament\Actions\Concerns\CanCustomizeProcess;
 use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Actions\Concerns\CanCustomizeProcess;
 
 class PreviewAction extends Action
 {

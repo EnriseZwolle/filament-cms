@@ -2,15 +2,15 @@
 
 namespace Enrisezwolle\FilamentCms;
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Database\Eloquent\Model;
-use Spatie\LaravelPackageTools\Package;
-use Enrisezwolle\FilamentCms\Contracts\IsSluggable;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Enrisezwolle\FilamentCms\Observers\SluggableObserver;
 use Enrisezwolle\FilamentCms\Commands\FilamentCmsCommand;
-use Enrisezwolle\FilamentCms\Http\Controllers\ViewResourceController;
+use Enrisezwolle\FilamentCms\Contracts\IsSluggable;
 use Enrisezwolle\FilamentCms\Exceptions\SluggableInterfaceNotImplemented;
+use Enrisezwolle\FilamentCms\Http\Controllers\ViewResourceController;
+use Enrisezwolle\FilamentCms\Observers\SluggableObserver;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Route;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentCmsServiceProvider extends PackageServiceProvider
 {

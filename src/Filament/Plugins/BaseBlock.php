@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Enrisezwolle\FilamentCms\Filament\Plugins;
 
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Hidden;
 use Illuminate\Support\Str;
 use stdClass;
-use Filament\Forms\Components\Builder\Block;
 
 abstract class BaseBlock implements BlockContract
 {
@@ -25,7 +25,7 @@ abstract class BaseBlock implements BlockContract
                 ...static::getFields(),
 
                 Hidden::make('id')
-                    ->default(fn () => Str::uuid()->toString())
+                    ->default(fn () => Str::uuid()->toString()),
             ])
             ->label(static::getLabel());
     }

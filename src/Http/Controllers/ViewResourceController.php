@@ -6,9 +6,9 @@ use Enrisezwolle\FilamentCms\Models\ResourceLookup;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
-use Illuminate\Routing\Controller;
 
 class ViewResourceController extends Controller
 {
@@ -38,7 +38,7 @@ class ViewResourceController extends Controller
         $views = config('filament-cms.views');
 
         return collect($views)
-            ->map(fn(string $view) => Str::replace('*', $resourceName, $view))
+            ->map(fn (string $view) => Str::replace('*', $resourceName, $view))
             ->toArray();
     }
 }

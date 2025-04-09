@@ -10,7 +10,7 @@ abstract class BlockModule
 {
     protected static function blocks(string $group): array
     {
-        return collect(config('filament-cms.blocks.' . $group, []))
+        return collect(config('filament-cms.blocks.'.$group, []))
             ->map(fn (string|BaseBlock $block) => $block::make())
             ->toArray();
     }
