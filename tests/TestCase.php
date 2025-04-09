@@ -2,9 +2,9 @@
 
 namespace Enrisezwolle\FilamentCms\Tests;
 
+use Enrisezwolle\FilamentCms\FilamentCmsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Enrisezwolle\FilamentCms\FilamentCmsServiceProvider;
 
 class TestCase extends Orchestra
 {
