@@ -1,3 +1,15 @@
+# TODO's
+
+* Merge visibility and publish plugins with each enabled conditionally
+* Preview
+* Frontend scopes
+* Menu
+* Translations
+* Update Readme
+* Labels
+* Frontend handling blocks
+* Make publish from/until optionally required
+
 # CMS features for filament
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/enrisezwolle/filament-cms.svg?style=flat-square)](https://packagist.org/packages/enrisezwolle/filament-cms)
