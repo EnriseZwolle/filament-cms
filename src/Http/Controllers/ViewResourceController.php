@@ -51,7 +51,7 @@ class ViewResourceController extends Controller
         $views = config('filament-cms.views');
 
         if (! filled($label)) {
-            $views = array_filter($views, fn(string $view) => ! Str::of($view)->contains('{label}'));
+            $views = array_filter($views, fn (string $view) => ! Str::of($view)->contains('{label}'));
         }
 
         return collect($views)

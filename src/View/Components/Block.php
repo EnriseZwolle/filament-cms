@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Enrisezwolle\FilamentCms\View\Components;
 
+use Closure;
 use Enrisezwolle\FilamentCms\Filament\Plugins\BlockModule;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Closure;
 
 class Block extends Component
 {
@@ -20,8 +20,6 @@ class Block extends Component
 
     /**
      * The block type.
-     *
-     * @var string
      */
     public string $type;
 
@@ -40,8 +38,6 @@ class Block extends Component
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return View|Closure|string
      */
     public function render(): View|Closure|string
     {

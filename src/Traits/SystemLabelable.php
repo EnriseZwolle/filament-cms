@@ -15,7 +15,7 @@ trait SystemLabelable
 
         static::deleting(function ($model) {
             if ($model->systemLabel()->exists()) {
-                throw new \Exception("Cannot delete this " . class_basename($model) . " because it has labels attached.");
+                throw new \Exception('Cannot delete this '.class_basename($model).' because it has labels attached.');
             }
         });
     }
