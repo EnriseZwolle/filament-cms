@@ -16,14 +16,14 @@ class TextBlock extends BaseBlock
 
     public static function getLabel(): string
     {
-        return __('Text');
+        return __('filament-cms::blocks.text.title');
     }
 
     public static function getFields(): array
     {
         return [
             Forms\Components\RichEditor::make('text')
-                ->label(__('Text'))
+                ->label(__('filament-cms::blocks.text.text'))
                 ->disableToolbarButtons([
                     'attachFiles',
                 ])

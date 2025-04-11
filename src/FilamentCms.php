@@ -30,7 +30,7 @@ class FilamentCms
             assert(in_array(HasVisibility::class, class_uses_recursive($modelInstance)));
 
             $fields[] = Forms\Components\Toggle::make($modelInstance->getVisibleKey())
-                ->label(__('Visible'))
+                ->label(__('filament-cms::visibility.visible'))
                 ->default(true)
                 ->required();
         }
@@ -40,26 +40,26 @@ class FilamentCms
 
             if ($publishFromRequired) {
                 $fields[] = Forms\Components\DatePicker::make($modelInstance->getPublishFromKey())
-                    ->label(__('Publish from'))
+                    ->label(__('filament-cms::visibility.publish_from'))
                     ->required()
                     ->default(today())
                     ->live(onBlur: true);
             } else {
                 $fields[] = Forms\Components\DatePicker::make($modelInstance->getPublishFromKey())
-                    ->label(__('Publish from'))
+                    ->label(__('filament-cms::visibility.publish_from'))
                     ->nullable()
                     ->live(onBlur: true);
             }
 
             if ($publishUntilRequired) {
                 $fields[] = Forms\Components\DatePicker::make($modelInstance->getPublishUntilKey())
-                    ->label(__('Publish until'))
+                    ->label(__('filament-cms::visibility.publish_until'))
                     ->required()
                     ->live(onBlur: true)
                     ->after('publish_from');
             } else {
                 $fields[] = Forms\Components\DatePicker::make($modelInstance->getPublishUntilKey())
-                    ->label(__('Publish until'))
+                    ->label(__('filament-cms::visibility.publish_until'))
                     ->nullable()
                     ->live(onBlur: true)
                     ->after('publish_from');
@@ -67,7 +67,7 @@ class FilamentCms
         }
 
         return Fieldset::make()
-            ->label(__('Visibility'))
+            ->label(__('filament-cms::visibility.title'))
             ->columns(1)
             ->schema($fields);
     }
@@ -76,61 +76,62 @@ class FilamentCms
     {
         return Group::make([
             Fieldset::make('seo')
-                ->label(__('SEO'))
+                ->label(__('filament-cms::seo.seo'))
                 ->relationship(
                     name: 'seo',
                 )
                 ->columns(1)
                 ->schema([
                     Forms\Components\TextInput::make('seo_title')
-                        ->label(__('SEO title'))
+                        ->label(__('filament-cms::seo.seo_title'))
                         ->string()
                         ->maxLength(250)
                         ->nullable()
-                        ->helperText(__('The recommended length is between :min and :max characters', [
+                        ->helperText(__('filament-cms::seo.seo_title_help', [
                             'min' => 50,
                             'max' => 60,
                         ])),
 
                     Forms\Components\Textarea::make('description')
-                        ->label(__('SEO description'))
+                        ->label(__('filament-cms::seo.seo_description'))
                         ->string()
                         ->maxLength(250)
                         ->nullable()
-                        ->helperText(__('The recommended length is between :min and :max characters', [
+                        ->helperText(__('filament-cms::seo.seo_description_help', [
                             'min' => 120,
                             'max' => 170,
                         ])),
 
                     Forms\Components\Toggle::make('noindex')
-                        ->label(__('Don\'t allow index'))
+                        ->label(__('filament-cms::seo.noindex'))
+                        ->helperText(__('filament-cms::seo.noindex_help'))
                         ->default(false),
 
                     Forms\Components\Toggle::make('nofollow')
-                        ->label(__('Allow follow'))
+                        ->label(__('filament-cms::seo.nofollow'))
                         ->default(false)
-                        ->helperText(__('Allow search engines to follow links on this resource')),
+                        ->helperText(__('filament-cms::seo.nofollow_help')),
                 ]),
 
             Forms\Components\Fieldset::make('og')
-                ->label(__('Social media'))
+                ->label(__('filament-cms::seo.social_media'))
                 ->relationship(
                     name: 'seo',
                 )
                 ->columns(1)
                 ->schema([
                     Forms\Components\TextInput::make('og_title')
-                        ->label(__('Title'))
+                        ->label(__('filament-cms::seo.og_title'))
                         ->string()
                         ->maxLength(250)
                         ->nullable()
-                        ->helperText(__('This title will be used when sharing on social media platforms')),
+                        ->helperText(__('filament-cms::seo.og_title_help')),
 
                     Forms\Components\FileUpload::make('image')
-                        ->label(__('Image'))
+                        ->label(__('filament-cms::seo.og_image'))
                         ->image()
                         ->nullable()
-                        ->helperText(__('This image will be used when sharing on social media platforms. An image with the dimensions of :width by :height is recommended for the best results.', ['width' => 1200, 'height' => 630])),
+                        ->helperText(__('filament-cms::seo.og_image_help', ['width' => 1200, 'height' => 630])),
                 ]),
         ]);
     }

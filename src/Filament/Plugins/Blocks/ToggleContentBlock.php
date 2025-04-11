@@ -15,14 +15,14 @@ class ToggleContentBlock extends BaseBlock
 
     public static function getLabel(): string
     {
-        return __('Toggle content');
+        return __('filament-cms::blocks.toggle_content.title');
     }
 
     public static function getFields(): array
     {
         return [
             Forms\Components\TextInput::make('title')
-                ->label(__('Title'))
+                ->label(__('filament-cms::blocks.toggle_content.name'))
                 ->required()
                 ->string()
                 ->maxLength(255),

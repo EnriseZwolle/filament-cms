@@ -15,15 +15,15 @@ class PreviewAction extends Action
 
     public static function getDefaultName(): ?string
     {
-        return 'open';
+        return 'preview';
     }
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->label(__('sluggable.preview'));
-        $this->tooltip(__('sluggable.tooltip'));
+        $this->label(__('filament-cms::actions.preview.label'));
+        $this->tooltip(__('filament-cms::actions.preview.tooltip'));
 
         $this->icon('heroicon-m-arrow-right-start-on-rectangle');
         $this->groupedIcon('heroicon-m-arrow-right-start-on-rectangle');

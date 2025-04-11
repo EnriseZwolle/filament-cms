@@ -1,6 +1,6 @@
 <section class="mb-5 lg:mb-10">
     <div class="container max-w-container-small">
-        <h2 class="heading-5">
+        <h2 class="text-3xl font-bold mb-2">
             {{ $block->title }}
         </h2>
 

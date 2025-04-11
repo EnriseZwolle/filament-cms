@@ -16,7 +16,7 @@ class ImageBlock extends BaseBlock
 
     public static function getLabel(): string
     {
-        return __('Image');
+        return __('filament-cms::blocks.image.title');
     }
 
     public static function getFields(): array
@@ -24,7 +24,7 @@ class ImageBlock extends BaseBlock
         return [
             Forms\Components\FileUpload::make('image')
                 ->image()
-                ->label(__('Image'))
+                ->label(__('filament-cms::blocks.image.image'))
                 ->required(),
         ];
     }

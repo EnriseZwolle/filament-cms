@@ -13,7 +13,7 @@ class PreviewAction extends Action
 
     public static function getDefaultName(): ?string
     {
-        return 'open';
+        return 'preview';
     }
 
     protected function setUp(): void

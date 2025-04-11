@@ -16,20 +16,20 @@ class TextWithTitleBlock extends BaseBlock
 
     public static function getLabel(): string
     {
-        return __('Text with title');
+        return __('filament-cms::blocks.text_with_title.title');
     }
 
     public static function getFields(): array
     {
         return [
             Forms\Components\TextInput::make('title')
-                ->label(__('Title'))
+                ->label(__('filament-cms::blocks.text_with_title.name'))
                 ->required()
                 ->string()
                 ->maxLength(255),
 
             Forms\Components\RichEditor::make('text')
-                ->label(__('Text'))
+                ->label(__('filament-cms::blocks.text_with_title.text'))
                 ->disableToolbarButtons([
                     'attachFiles',
                 ])

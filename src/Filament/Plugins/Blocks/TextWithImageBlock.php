@@ -16,14 +16,14 @@ class TextWithImageBlock extends BaseBlock
 
     public static function getLabel(): string
     {
-        return __('Text with image');
+        return __('filament-cms::blocks.text_with_image.title');
     }
 
     public static function getFields(): array
     {
         return [
             Forms\Components\RichEditor::make('text')
-                ->label(__('Text'))
+                ->label(__('filament-cms::blocks.text_with_image.text'))
                 ->disableToolbarButtons([
                     'attachFiles',
                 ])
@@ -32,15 +32,15 @@ class TextWithImageBlock extends BaseBlock
                 ->required(),
 
             Forms\Components\FileUpload::make('image')
-                ->label(__('Image'))
+                ->label(__('filament-cms::blocks.text_with_image.image'))
                 ->image()
                 ->required(),
 
             Forms\Components\Radio::make('position')
-                ->label(__('Position'))
+                ->label(__('filament-cms::blocks.text_with_image.image_position'))
                 ->options([
-                    'left' => __('Left'),
-                    'right' => __('Right'),
+                    'left' => __('filament-cms::blocks.text_with_image.left'),
+                    'right' => __('filament-cms::blocks.text_with_image.right'),
                 ])
                 ->required()
                 ->default('left'),

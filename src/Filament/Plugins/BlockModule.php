@@ -17,10 +17,12 @@ abstract class BlockModule
 
     public static function make(string $column, string $group = 'active'): Forms\Components\Fieldset
     {
-        return Forms\Components\Fieldset::make(__('Blocks'))
+        return Forms\Components\Fieldset::make()
+            ->label(__('filament-cms::blocks.title'))
             ->schema([
                 Forms\Components\Builder::make($column)
-                    ->addActionLabel(__('Add block'))
+                    ->label('')
+                    ->addActionLabel(__('filament-cms::blocks.add_block'))
                     ->collapsible()
                     ->blocks(
                         self::blocks($group)

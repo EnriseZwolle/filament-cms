@@ -6,8 +6,10 @@
 * ~~Frontend scopes~~
 * ~~Labels~~
 * ~~Frontend handling blocks~~
+* SEO Frontend
+* Block seeder
 * Menu
-* Translations
+* ~~Translations~~
 * Update Readme
 
 # CMS features for filament

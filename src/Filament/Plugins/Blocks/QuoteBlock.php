@@ -16,14 +16,14 @@ class QuoteBlock extends BaseBlock
 
     public static function getLabel(): string
     {
-        return __('Quote');
+        return __('filament-cms::blocks.quote.title');
     }
 
     public static function getFields(): array
     {
         return [
             Forms\Components\Textarea::make('quote')
-                ->label(__('Quote'))
+                ->label(__('filament-cms::blocks.quote.quote'))
                 ->string()
                 ->maxLength(65535)
                 ->required(),
