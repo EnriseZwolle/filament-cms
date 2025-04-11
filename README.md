@@ -5,7 +5,7 @@
 * ~~Preview~~
 * ~~Frontend scopes~~
 * ~~Labels~~
-* Frontend handling blocks
+* ~~Frontend handling blocks~~
 * Menu
 * Translations
 * Update Readme

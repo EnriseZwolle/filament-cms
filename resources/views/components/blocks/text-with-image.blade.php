@@ -3,7 +3,12 @@
         <div class="flex gap-5 w-full @if($block->position === 'right') flex-col md:flex-row-reverse @else flex-col md:flex-row @endif">
             <div class="w-full md:w-1/2">
                 <figure class="w-full">
-                    <x-curator-glider :media="(int)$block->image" class="relative w-full" :width="900" />
+                    <x-image-optimizer::image
+                        :src="$block->image"
+                        :width="900"
+                        :webp="true"
+                        :quality="70"
+                    />
                 </figure>
             </div>
             <div class="w-full md:w-1/2">
