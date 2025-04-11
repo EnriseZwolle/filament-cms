@@ -28,7 +28,8 @@ class PreviewAction extends Action
 
         $this->url(function (Model $record) {
             $hash = FilamentCms::hashModel($record::class, $record->getKey());
-            return url($record->getFullPath() . "?preview=$hash");
+
+            return url($record->getFullPath()."?preview=$hash");
         }, true);
     }
 }

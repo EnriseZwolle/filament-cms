@@ -32,7 +32,8 @@ class PreviewAction extends Action
             throw_if(! is_subclass_of($record, IsSluggable::class), new SluggableInterfaceNotImplemented(get_class($record)));
 
             $hash = FilamentCms::hashModel($record::class, $record->getKey());
-            return url($record->getFullPath() . "?preview=$hash");
+
+            return url($record->getFullPath()."?preview=$hash");
         }, true);
     }
 }

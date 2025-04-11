@@ -8,7 +8,8 @@ use Filament\Forms;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Group;
 
-class FilamentCms {
+class FilamentCms
+{
     public static function hashModel(string $className, mixed $id): string
     {
         return hash('sha256', "{$className}_{$id}");
@@ -20,12 +21,10 @@ class FilamentCms {
         bool $publishable = true,
         bool $publishFromRequired = false,
         bool $publishUntilRequired = false,
-    ): Fieldset
-    {
+    ): Fieldset {
         $fields = [];
 
         $modelInstance = new $model;
-
 
         if ($visibility) {
             assert(in_array(HasVisibility::class, class_uses_recursive($modelInstance)));
@@ -66,7 +65,6 @@ class FilamentCms {
                     ->after('publish_from');
             }
         }
-
 
         return Fieldset::make()
             ->label(__('Visibility'))
