@@ -8,10 +8,13 @@ return [
     ],
 
     'views' => [
-        'pages.*.index',
-        'pages.*',
-        '*.index',
-        '*',
+        'pages.{resource}.{label}',
+        'pages.{resource}.index',
+        'pages.{resource}',
+        '{resource}.{label}',
+        '{resource}.index',
+        '{label}',
+        '{resource}',
         'index',
     ],
 

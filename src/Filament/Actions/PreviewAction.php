@@ -2,8 +2,10 @@
 
 namespace Enrisezwolle\FilamentCms\Filament\Actions;
 
+use Enrisezwolle\FilamentCms\Facades\FilamentCms;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\CanCustomizeProcess;
+use Illuminate\Database\Eloquent\Model;
 
 class PreviewAction extends Action
 {
@@ -24,6 +26,9 @@ class PreviewAction extends Action
         $this->icon('heroicon-m-arrow-right-start-on-rectangle');
         $this->groupedIcon('heroicon-m-arrow-right-start-on-rectangle');
 
-        $this->url(fn ($record) => url($record->getFullPath()), true);
+        $this->url(function (Model $record) {
+            $hash = FilamentCms::hashModel($record::class, $record->getKey());
+            return url($record->getFullPath() . "?preview=$hash");
+        }, true);
     }
 }

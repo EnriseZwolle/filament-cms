@@ -1,14 +1,14 @@
 # TODO's
 
-* Merge visibility and publish plugins with each enabled conditionally
-* Preview
-* Frontend scopes
+* ~~Merge visibility and publish plugins with each enabled conditionally~~
+* ~~Make publish from/until optionally required~~
+* ~~Preview~~
+* ~~Frontend scopes~~
+* ~~Labels~~
+* Frontend handling blocks
 * Menu
 * Translations
 * Update Readme
-* Labels
-* Frontend handling blocks
-* Make publish from/until optionally required
 
 # CMS features for filament
 

@@ -4,6 +4,7 @@ namespace Enrisezwolle\FilamentCms\Filament\Actions\Tables;
 
 use Enrisezwolle\FilamentCms\Contracts\IsSluggable;
 use Enrisezwolle\FilamentCms\Exceptions\SluggableInterfaceNotImplemented;
+use Enrisezwolle\FilamentCms\Facades\FilamentCms;
 use Filament\Actions\Concerns\CanCustomizeProcess;
 use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +31,8 @@ class PreviewAction extends Action
         $this->url(function (Model|IsSluggable $record) {
             throw_if(! is_subclass_of($record, IsSluggable::class), new SluggableInterfaceNotImplemented(get_class($record)));
 
-            return url($record->getFullPath());
+            $hash = FilamentCms::hashModel($record::class, $record->getKey());
+            return url($record->getFullPath() . "?preview=$hash");
         }, true);
     }
 }

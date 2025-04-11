@@ -8,6 +8,7 @@ use Enrisezwolle\FilamentCms\Exceptions\SluggableInterfaceNotImplemented;
 use Enrisezwolle\FilamentCms\Http\Controllers\ViewResourceController;
 use Enrisezwolle\FilamentCms\Observers\SluggableObserver;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -24,6 +25,8 @@ class FilamentCmsServiceProvider extends PackageServiceProvider
         Route::macro('filamentCms', function () {
             Route::fallback(ViewResourceController::class);
         });
+
+        Blade::componentNamespace('Enrisezwolle\\FilamentCms\\View\\Components', 'filament-cms');
 
         foreach (config('filament-cms.models') as $model) {
             throw_if(! is_subclass_of($model, Model::class), new \Exception('Sluggable only supports model classes.'));
@@ -47,6 +50,7 @@ class FilamentCmsServiceProvider extends PackageServiceProvider
             ->hasTranslations()
             ->hasMigration('create_resource_lookups_table')
             ->hasMigration('create_seo_table')
+            ->hasMigration('create_system_labels_table')
             ->hasCommand(FilamentCmsCommand::class);
     }
 }
