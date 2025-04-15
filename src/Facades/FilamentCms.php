@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static string hashModel(string $className, mixed $id)
- * @method static Fieldset visibilityFields(bool $visibility = true, bool $publishable = true, bool $publishFromRequired = false, bool $publishUntilRequired = false)
+ * @method static Fieldset visibilityFields(string $model, bool $visibility = true, bool $publishable = true, bool $publishFromRequired = false, bool $publishUntilRequired = false)
  * @method static Group seoFields()
  *
  * @see \Enrisezwolle\FilamentCms\FilamentCms

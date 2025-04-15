@@ -9,10 +9,10 @@ return [
 
     'views' => [
         'pages.{resource}.{label}',
-        'pages.{resource}.index',
+        'pages.{resource}.show',
         'pages.{resource}',
         '{resource}.{label}',
-        '{resource}.index',
+        '{resource}.show',
         '{label}',
         '{resource}',
         'index',
