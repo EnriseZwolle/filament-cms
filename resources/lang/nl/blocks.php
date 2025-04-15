@@ -8,7 +8,7 @@ return [
 
     'text' => [
         'title' => 'Tekst',
-        'text' => 'Tekst'
+        'text' => 'Tekst',
     ],
 
     'text_with_title' => [
@@ -39,5 +39,5 @@ return [
     'toggle_content' => [
         'title' => 'Uitklap',
         'name' => 'Titel',
-    ]
+    ],
 ];
