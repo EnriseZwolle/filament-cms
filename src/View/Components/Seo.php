@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace Enrisezwolle\FilamentCms\View\Components;
 
 use Closure;
-use Enrisezwolle\FilamentCms\Contracts\IsSluggable;
 use Enrisezwolle\FilamentCms\Traits\Seoable;
-use Illuminate\Support\Str;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use Illuminate\View\Component;
 
 class Seo extends Component
 {
@@ -21,10 +20,7 @@ class Seo extends Component
         public string $type = 'website',
         public ?string $url = null,
         public ?string $image = null,
-    )
-    {
-
-    }
+    ) {}
 
     public function getSeoTitle(): string
     {
