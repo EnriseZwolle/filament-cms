@@ -8,8 +8,7 @@
 * ~~Frontend handling blocks~~
 * ~~Translations~~
 * ~~Update Readme~~
-* SEO Frontend
-  * Update readme
+* ~~SEO Frontend~~
 * Block seeder
 * Menu
 * Title + slug plugin
@@ -271,7 +270,26 @@ trait to it.
 Next you need to add the fields to your filament resource tables. Using the `FilamentCms` facade you can add it with 
 `FilamentCms::seoFields()`. This adds a fieldset with all SEO and open graph related fields.
 
-// TODO: Add info about adding it to front-end
+To load the SEO data in the front-end start by adding a seo stack to your head in your template `@stack('seo')`. 
+Next add the following to your blade file:
+
+```bladehtml
+<x-filament-cms::seo 
+    :model="$model" 
+    :suffix="true"
+    :robots="[]"
+    :url="url()->current()"
+    :image="$model->image"
+/>
+```
+
+The model with the seo trait is a required variable. Additionally it accepts several other properties. The suffix 
+property can be either a boolean or a string. When set to true it simply adds the app name to the title, for example 
+`Contact | Enrise`. Robots are populated automatically based on if `no follow` or `no index` are enabled. Additional 
+robots can be added as well and will be merged with the previous mentioned ones. Url will default to `url()->current
+()`, but if the open-graph url needs to deviate it can be specified by overriding the url property. Finally, when no 
+open-graph image is set in the CMS you often want to default back to the resources image. That can be done by 
+supplying an image property. It will prioritize the SEO image.
 
 ## Scopes
 

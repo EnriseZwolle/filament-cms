@@ -7,6 +7,9 @@ namespace Enrisezwolle\FilamentCms\Traits;
 use Enrisezwolle\FilamentCms\Models\Seo;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @used-by Model
+ */
 trait Seoable
 {
     public static function bootSeoable(): void
@@ -15,4 +18,8 @@ trait Seoable
             return $model->morphOne(Seo::class, 'seoable');
         });
     }
+
+    abstract public function getTitle(): string;
+
+    abstract public function getDescription(): ?string;
 }
