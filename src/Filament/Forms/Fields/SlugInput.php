@@ -4,7 +4,6 @@ namespace Enrisezwolle\FilamentCms\Filament\Forms\Fields;
 
 use Closure;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Support\Str;
 
 class SlugInput extends TextInput
 {
