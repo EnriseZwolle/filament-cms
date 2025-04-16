@@ -2,6 +2,7 @@
 
 namespace Enrisezwolle\FilamentCms\Http\Controllers;
 
+use Enrisezwolle\FilamentCms\Contracts\IsSluggable;
 use Enrisezwolle\FilamentCms\Facades\FilamentCms;
 use Enrisezwolle\FilamentCms\Models\ResourceLookup;
 use Illuminate\Database\Eloquent\Model;
@@ -43,9 +44,9 @@ class ViewResourceController extends Controller
         return $preview === FilamentCms::hashModel($lookup->model()->getModel()::class, $lookup->model_id);
     }
 
-    protected function getViews(Model $model): array
+    protected function getViews(Model|IsSluggable $model): array
     {
-        $resourceName = Str::of(get_class($model))->afterLast('\\')->lower()->slug()->toString();
+        $resourceName = $model->getResourceName();
         $label = $model->systemLabel?->label;
 
         $views = config('filament-cms.views');

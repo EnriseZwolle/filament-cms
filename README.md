@@ -10,13 +10,12 @@
 * ~~Update Readme~~
 * ~~SEO Frontend~~
 * ~~Move registering observer to trait instead of config/provider~~
+* ~~Move resource name from controller to trait~~
 * Block seeder
 * Menu
 * Title + slug plugin
 * Search
 * Testen schrijven
-* Move resource name from controller to trait
-  * Update views section of readme
 
 # CMS features for filament
 
@@ -114,7 +113,8 @@ By default the following structure is provided, but can easily be modified to yo
 
 It grabs the first existing view specified in the array. It can contain two wildcards, `{resource}` and `{label}`. 
 The `resource` wildcard will be the sluggified name of the model, so for the `News` model `'pages.{resource}.show'` 
-will become `'pages.news.show'`.
+will become `'pages.news.show'`. This can be overwritten by overriding the `getResourceName()` method of the 
+`Sluggable` trait.
 
 The same applies to label. Models can receive a system label (more on this later), and the `{label}` will be 
 replaced by this label if it exists. If a model has no system label these lines will be filtered. 

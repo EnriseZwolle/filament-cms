@@ -7,6 +7,7 @@ use Enrisezwolle\FilamentCms\Models\ResourceLookup;
 use Enrisezwolle\FilamentCms\Observers\SluggableObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Str;
 
 /**
  * @mixin Model|IsSluggable
@@ -16,6 +17,11 @@ trait Sluggable
     public static function bootSluggable(): void
     {
         self::observe(SluggableObserver::class);
+    }
+
+    public function getResourceName(): string
+    {
+        return Str::of(self::class)->afterLast('\\')->lower()->slug()->toString();
     }
 
     public function resourceLookup(): MorphOne

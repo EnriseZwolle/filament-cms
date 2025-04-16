@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 interface IsSluggable
 {
+    public function getResourceName(): string;
+
     public function sluggableParent(): ?string;
 
     public function sluggableChildren(): ?string;
