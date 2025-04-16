@@ -9,6 +9,7 @@
 * ~~Translations~~
 * ~~Update Readme~~
 * ~~SEO Frontend~~
+* ~~Move registering observer to trait instead of config/provider~~
 * Block seeder
 * Menu
 * Title + slug plugin
@@ -16,8 +17,6 @@
 * Testen schrijven
 * Move resource name from controller to trait
   * Update views section of readme
-* Move registering observer to trait instead of config/provider
-  * Update docs
 
 # CMS features for filament
 
@@ -84,15 +83,7 @@ class Page extends Model implements IsSluggable
 As mentioned previously, by default it uses a database column called `slug` by default to build the slugs. This can 
 be changed by overriding the `sluggableAttribute()` method on the model.
 
-Additionally this model needs to be registered in the `filament-cms.models` config.
-
-```php
-'models' => [
-    \App\Models\Page::class,
-],
-```
-
-When both are configured correctly it will configure observers automatically and write the slugs to the lookup table.
+The trait will register an observers automatically and write/update the slugs to the lookup table.
 
 ### Routing
 

@@ -4,6 +4,7 @@ namespace Enrisezwolle\FilamentCms\Traits;
 
 use Enrisezwolle\FilamentCms\Contracts\IsSluggable;
 use Enrisezwolle\FilamentCms\Models\ResourceLookup;
+use Enrisezwolle\FilamentCms\Observers\SluggableObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
@@ -12,6 +13,11 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  */
 trait Sluggable
 {
+    public static function bootSluggable(): void
+    {
+        self::observe(SluggableObserver::class);
+    }
+
     public function resourceLookup(): MorphOne
     {
         return $this->morphOne(ResourceLookup::class, 'model');

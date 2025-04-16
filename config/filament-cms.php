@@ -3,10 +3,6 @@
 use Enrisezwolle\FilamentCms\Filament\Plugins\Blocks;
 
 return [
-    'models' => [
-        //
-    ],
-
     'views' => [
         'pages.{resource}.{label}',
         'pages.{resource}.show',
