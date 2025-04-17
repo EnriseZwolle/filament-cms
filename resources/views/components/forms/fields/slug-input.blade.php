@@ -1,6 +1,5 @@
 <x-filament-forms::field-wrapper.index
     :id="$getId()"
-    :label="$getLabel()"
     :label-sr-only="$isLabelHidden()"
     :helper-text="$getHelperText()"
     :hint="$getHint()"

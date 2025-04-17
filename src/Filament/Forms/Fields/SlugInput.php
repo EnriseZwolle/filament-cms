@@ -12,8 +12,6 @@ class SlugInput extends TextInput
 
     protected string|Closure|null $context = null;
 
-    protected bool $cancelled = false;
-
     protected Closure $recordSlug;
 
     protected bool|Closure $readOnly = false;
@@ -34,7 +32,7 @@ class SlugInput extends TextInput
 
     public function slugInputLabelPrefix(?string $labelPrefix): static
     {
-        $this->labelPrefix = $labelPrefix ?? 'translation - slug: ';
+        $this->labelPrefix = $labelPrefix;
 
         return $this;
     }

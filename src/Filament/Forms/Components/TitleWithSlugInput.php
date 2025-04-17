@@ -16,29 +16,29 @@ class TitleWithSlugInput
 {
     public static function make(
         // Model fields
-        string $fieldTitle = null,
-        string $fieldSlug = null,
+        string $fieldTitle,
+        string $fieldSlug,
 
         // Title
-        string|Closure $titleLabel = null,
-        string $titlePlaceholder = null,
+        string|Closure|null $titleLabel = null,
+        string|null $titlePlaceholder = null,
         array $titleRules = [
             'required',
         ],
         array $titleRuleUniqueParameters = [],
         bool|Closure $titleIsReadonly = false,
         bool|Closure $titleAutofocus = true,
-        Closure $titleAfterStateUpdated = null,
+        Closure|null $titleAfterStateUpdated = null,
 
         // Slug
-        string $slugLabel = null,
+        string|null $slugLabel = null,
         array $slugRules = [
             'required',
         ],
         array $slugRuleUniqueParameters = [],
         bool|Closure $slugIsReadonly = false,
-        Closure $slugAfterStateUpdated = null,
-        Closure $slugSlugifier = null,
+        Closure|null $slugAfterStateUpdated = null,
+        Closure|null $slugSlugifier = null,
         string|Closure $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
     ): Group {
         $textInput = TextInput::make($fieldTitle)
