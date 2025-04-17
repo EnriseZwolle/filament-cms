@@ -2,8 +2,8 @@
 
 namespace Enrisezwolle\FilamentCms\Filament\Forms\Components;
 
-use Enrisezwolle\FilamentCms\Filament\Forms\Fields\SlugInput;
 use Closure;
+use Enrisezwolle\FilamentCms\Filament\Forms\Fields\SlugInput;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
@@ -21,24 +21,25 @@ class TitleWithSlugInput
 
         // Title
         string|Closure|null $titleLabel = null,
-        string|null $titlePlaceholder = null,
+        ?string $titlePlaceholder = null,
         array $titleRules = [
             'required',
         ],
         array $titleRuleUniqueParameters = [],
         bool|Closure $titleIsReadonly = false,
         bool|Closure $titleAutofocus = true,
-        Closure|null $titleAfterStateUpdated = null,
+
+        ?Closure $titleAfterStateUpdated = null,
 
         // Slug
-        string|null $slugLabel = null,
+        ?string $slugLabel = null,
         array $slugRules = [
             'required',
         ],
         array $slugRuleUniqueParameters = [],
         bool|Closure $slugIsReadonly = false,
-        Closure|null $slugAfterStateUpdated = null,
-        Closure|null $slugSlugifier = null,
+        ?Closure $slugAfterStateUpdated = null,
+        ?Closure $slugSlugifier = null,
         string|Closure $slugRuleRegex = '/^[a-z0-9\-\_]*$/',
     ): Group {
         $textInput = TextInput::make($fieldTitle)
