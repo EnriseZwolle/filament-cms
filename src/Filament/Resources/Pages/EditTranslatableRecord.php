@@ -15,7 +15,7 @@ class EditTranslatableRecord extends EditRecord
 
     public function getTitle(): string|Htmlable
     {
-        return parent::getTitle() . ' (' . strtoupper($this->locale) . ')';
+        return parent::getTitle().' ('.strtoupper($this->locale).')';
     }
 
     public function getModel(): string

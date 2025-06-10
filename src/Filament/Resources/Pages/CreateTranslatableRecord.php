@@ -12,7 +12,9 @@ class CreateTranslatableRecord extends CreateRecord
     protected static string $detailModel;
 
     public Model|IsTranslatable $common;
+
     public mixed $commonId;
+
     public string $locale;
 
     public function getModel(): string
@@ -22,7 +24,7 @@ class CreateTranslatableRecord extends CreateRecord
 
     public function getTitle(): string|Htmlable
     {
-        return parent::getTitle() . ' (' . strtoupper($this->locale) . ')';
+        return parent::getTitle().' ('.strtoupper($this->locale).')';
     }
 
     public function mount(): void
@@ -57,7 +59,7 @@ class CreateTranslatableRecord extends CreateRecord
             return $resource::getUrl('view-language', [
                 'record' => $this->commonId,
                 'locale' => $this->locale,
-                ...$this->getRedirectUrlParameters()
+                ...$this->getRedirectUrlParameters(),
             ]);
         }
 
@@ -65,7 +67,7 @@ class CreateTranslatableRecord extends CreateRecord
             return $resource::getUrl('edit-language', [
                 'record' => $this->commonId,
                 'locale' => $this->locale,
-                ...$this->getRedirectUrlParameters()
+                ...$this->getRedirectUrlParameters(),
             ]);
         }
 
@@ -82,12 +84,12 @@ class CreateTranslatableRecord extends CreateRecord
         if ($resource::hasPage('view')) {
             $url = $resource::getUrl('view', [
                 'record' => $this->commonId,
-                ...$this->getRedirectUrlParameters()
+                ...$this->getRedirectUrlParameters(),
             ]);
         } elseif ($resource::hasPage('edit')) {
             $url = $resource::getUrl('edit', [
                 'record' => $this->commonId,
-                ...$this->getRedirectUrlParameters()
+                ...$this->getRedirectUrlParameters(),
             ]);
         }
 

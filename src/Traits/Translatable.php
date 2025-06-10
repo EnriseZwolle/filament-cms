@@ -21,7 +21,7 @@ trait Translatable
 
     public function getTranslatedUrl(): string
     {
-        return url($this->getTranslatableLocale() . '/' . $this->getFullPath());
+        return url($this->getTranslatableLocale().'/'.$this->getFullPath());
     }
 
     abstract public function common(): BelongsTo;

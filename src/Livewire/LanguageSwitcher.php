@@ -6,7 +6,6 @@ use Enrisezwolle\FilamentCms\Contracts\IsTranslatable;
 use Enrisezwolle\FilamentCms\Models\ResourceLookup;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Livewire\Component;
 
 class LanguageSwitcher extends Component
@@ -53,6 +52,7 @@ class LanguageSwitcher extends Component
         // If no page cannot be found in lookup redirect back to home
         if (is_null($lookup)) {
             $this->redirect('/');
+
             return;
         }
 
@@ -64,6 +64,7 @@ class LanguageSwitcher extends Component
         // If no common model can be found for current page redirect to home
         if (is_null($common)) {
             $this->redirect('/');
+
             return;
         }
 
@@ -77,6 +78,7 @@ class LanguageSwitcher extends Component
         // If translated instance can be found redirect to its url
         if ($translated && $translated instanceof IsTranslatable) {
             $this->redirect($translated->getTranslatedUrl());
+
             return;
         }
 

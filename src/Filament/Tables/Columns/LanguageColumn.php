@@ -68,13 +68,13 @@ class LanguageColumn extends Column
         if ($state->contains(fn (Model $model) => $model->locale === $language)) {
             return $this->getResourceClass()::getUrl('edit-language', [
                 'record' => $this->getRecord()->getKey(),
-                'locale' => $language
+                'locale' => $language,
             ]);
         }
 
         return $this->getResourceClass()::getUrl('create-language', [
             'commonId' => $this->getRecord()->getKey(),
-            'locale' => $language
+            'locale' => $language,
         ]);
     }
 

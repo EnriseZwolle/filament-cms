@@ -57,7 +57,7 @@ class SluggableObserver
                 ->when(! is_null($locale), fn (Builder $builder) => $builder->where('locale', $locale))
                 ->first();
 
-            $newSlug = $model->getSluggableSlug() . '-1';
+            $newSlug = $model->getSluggableSlug().'-1';
 
             if (filled($latestIncrement)) {
                 $integer = Str::of($latestIncrement->path)
@@ -65,7 +65,7 @@ class SluggableObserver
                     ->after('-')
                     ->toInteger();
 
-                $newSlug = $model->getSluggableSlug() . '-' . $integer + 1;
+                $newSlug = $model->getSluggableSlug().'-'.$integer + 1;
             }
 
             $model->update([$model->sluggableAttribute() => $newSlug]);

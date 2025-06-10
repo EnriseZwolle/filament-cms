@@ -27,7 +27,7 @@ class FillLanguageAction extends ActionGroup
             foreach (config('filament-cms.languages', []) as $language) {
                 $actions[] = Action::make($language)
                     ->label(strtoupper($language))
-                    ->icon(fn(Model|IsTranslatable $record) => static::getSubActionIcon($instance, $record, $language))
+                    ->icon(fn (Model|IsTranslatable $record) => static::getSubActionIcon($instance, $record, $language))
                     ->url(fn (Model|IsTranslatable $record) => static::getSubActionUrl($instance, $record, $language));
             }
         }
@@ -96,21 +96,21 @@ class FillLanguageAction extends ActionGroup
             if ($resource::hasPage('view-language')) {
                 return $resource::getUrl('view-language', [
                     'record' => $model->getKey(),
-                    'locale' => $locale
+                    'locale' => $locale,
                 ]);
             }
 
             if ($resource::hasPage('edit-language')) {
                 return $resource::getUrl('edit-language', [
                     'record' => $model->getKey(),
-                    'locale' => $locale
+                    'locale' => $locale,
                 ]);
             }
         }
 
         return $resource::getUrl('create-language', [
             'commonId' => $model->getKey(),
-            'locale' => $locale
+            'locale' => $locale,
         ]);
     }
 }

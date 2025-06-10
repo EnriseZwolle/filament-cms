@@ -3,7 +3,6 @@
 namespace Enrisezwolle\FilamentCms\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 interface IsTranslatable
 {
