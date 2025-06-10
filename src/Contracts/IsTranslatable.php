@@ -2,6 +2,7 @@
 
 namespace Enrisezwolle\FilamentCms\Contracts;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 interface IsTranslatable
@@ -13,4 +14,6 @@ interface IsTranslatable
     public function getTranslatableLocale(): string;
 
     public function getTranslatedUrl(): string;
+
+    public function common(): BelongsTo;
 }

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('resource_lookups', function (Blueprint $table) {
             $table->id();
 
+            $table->string('locale')->nullable()->after('id')
+
             $table->morphs('model');
 
             $table->string('slug');

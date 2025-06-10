@@ -2,6 +2,11 @@
 
 namespace Enrisezwolle\FilamentCms\Traits;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+/**
+ * @used-by Model
+ */
 trait Translatable
 {
     public function translatableColumn(): string
@@ -18,4 +23,6 @@ trait Translatable
     {
         return url($this->getTranslatableLocale() . '/' . $this->getFullPath());
     }
+
+    abstract public function common(): BelongsTo;
 }

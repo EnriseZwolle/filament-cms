@@ -72,8 +72,8 @@ class FillLanguageAction extends ActionGroup
 
     protected static function getSubActionIcon(self $actionGroup, Model|IsTranslatable $model, string $locale): string
     {
-        // TODO: Refactor to be dynamic (both blog relation and locale name)
-        $instance = $model->blogs()->firstWhere('locale', $locale);
+        $localeColumn = $model->details()->getModel()->translatableColumn();
+        $instance = $model->details()->firstWhere($localeColumn, $locale);
 
         if ($instance) {
             if ($actionGroup->evaluate($actionGroup->conceptClosure, ['instance' => $instance])) {
@@ -88,8 +88,8 @@ class FillLanguageAction extends ActionGroup
 
     protected static function getSubActionUrl(self $actionGroup, Model|IsTranslatable $model, string $locale): string
     {
-        // TODO: Refactor to be dynamic (both blog relation and locale name)
-        $instance = $model->blogs()->firstWhere('locale', $locale);
+        $localeColumn = $model->details()->getModel()->translatableColumn();
+        $instance = $model->details()->firstWhere($localeColumn, $locale);
         $resource = $actionGroup->getResourceClass();
 
         if ($instance) {
