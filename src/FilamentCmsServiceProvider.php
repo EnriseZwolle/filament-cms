@@ -4,7 +4,7 @@ namespace Enrisezwolle\FilamentCms;
 
 use Enrisezwolle\FilamentCms\Commands\FilamentCmsCommand;
 use Enrisezwolle\FilamentCms\Http\Controllers\ViewResourceController;
-use Enrisezwolle\FilamentCms\Http\Middleware\MultilingualMiddleware;
+use Enrisezwolle\FilamentCms\Http\Middleware\TranslatableMiddleware;
 use Enrisezwolle\FilamentCms\Livewire\LanguageSwitcher;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +23,7 @@ class FilamentCmsServiceProvider extends PackageServiceProvider
 
         Route::macro('filamentCms', function () {
             Route::fallback(ViewResourceController::class)
-                ->middleware(MultilingualMiddleware::class);
+                ->middleware(TranslatableMiddleware::class);
         });
 
         Blade::componentNamespace('Enrisezwolle\\FilamentCms\\View\\Components', 'filament-cms');

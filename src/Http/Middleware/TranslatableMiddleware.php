@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
-class MultilingualMiddleware
+class TranslatableMiddleware
 {
     /**
      * Handle an incoming request.
@@ -30,13 +30,6 @@ class MultilingualMiddleware
         $request->lookupPath = $path;
 
         return $next($request);
-    }
-
-    protected function getMultilingualData(Request $request): array
-    {
-        $locale = null;
-
-
     }
 
     protected function pathIsMultilingual(string $path): bool
