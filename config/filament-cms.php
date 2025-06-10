@@ -1,6 +1,7 @@
 <?php
 
 use Enrisezwolle\FilamentCms\Filament\Plugins\Blocks;
+use Enrisezwolle\FilamentCms\Traits\Translatable;
 
 return [
     'views' => [
@@ -32,4 +33,6 @@ return [
             Blocks\QuoteBlock::class,
         ],
     ],
+
+    'languages' => null,
 ];
