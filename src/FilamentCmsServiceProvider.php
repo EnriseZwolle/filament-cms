@@ -4,8 +4,11 @@ namespace Enrisezwolle\FilamentCms;
 
 use Enrisezwolle\FilamentCms\Commands\FilamentCmsCommand;
 use Enrisezwolle\FilamentCms\Http\Controllers\ViewResourceController;
+use Enrisezwolle\FilamentCms\Http\Middleware\TranslatableMiddleware;
+use Enrisezwolle\FilamentCms\Livewire\LanguageSwitcher;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,10 +22,13 @@ class FilamentCmsServiceProvider extends PackageServiceProvider
         parent::boot();
 
         Route::macro('filamentCms', function () {
-            Route::fallback(ViewResourceController::class);
+            Route::fallback(ViewResourceController::class)
+                ->middleware(TranslatableMiddleware::class);
         });
 
         Blade::componentNamespace('Enrisezwolle\\FilamentCms\\View\\Components', 'filament-cms');
+
+        Livewire::component('language-switcher', LanguageSwitcher::class);
     }
 
     public function configurePackage(Package $package): void

@@ -32,4 +32,6 @@ return [
             Blocks\QuoteBlock::class,
         ],
     ],
+
+    'languages' => null,
 ];

@@ -19,9 +19,7 @@ class ViewResourceController extends Controller
 
     public function __invoke(Request $request, string $path)
     {
-        $lookup = ResourceLookup::query()
-            ->where('path', $path)
-            ->firstOrFail();
+        $lookup = $this->getLookup($request);
 
         // Do not apply frontend scopes when previewing
         $scopes = $this->isPreview($request, $lookup) ? [] : ($lookup->model()->getModel()::$frontendScopes ?? []);
@@ -31,6 +29,21 @@ class ViewResourceController extends Controller
             ->firstOrFail();
 
         return View::first($this->getViews($model), ['model' => $model]);
+    }
+
+    public function getLookup(Request $request): ResourceLookup
+    {
+        if (! is_null($request->lookupLocale)) {
+            return ResourceLookup::query()
+                ->where('locale', $request->lookupLocale)
+                ->where('path', $request->lookupPath)
+                ->firstOrFail();
+        }
+
+        return ResourceLookup::query()
+            ->whereNull('locale')
+            ->where('path', $request->lookupPath)
+            ->firstOrFail();
     }
 
     protected function isPreview(Request $request, ResourceLookup $lookup): bool
